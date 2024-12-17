@@ -1,8 +1,7 @@
-// src/components/feed/CreatePost.tsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CreatePost: React.FC = () => {
+const CreatePostButton: React.FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -28,4 +27,4 @@ const CreatePost: React.FC = () => {
   );
 };
 
-export default CreatePost;
+export default CreatePostButton;

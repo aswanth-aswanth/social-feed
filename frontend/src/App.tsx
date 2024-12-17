@@ -6,7 +6,6 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import UserProfile from "./components/profile/UserProfile";
 import EditProfile from "./components/profile/EditProfile";
-// import Header from "./components/common/Header";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 import CreatePostPage from "./components/feed/CreatePostPage";
@@ -19,7 +18,6 @@ const App: React.FC = () => {
       <Router>
         <AuthProvider>
           <div className="min-h-screen bg-gray-100">
-            {/* <Header /> */}
             <Routes>
               <Route
                 path="/"
