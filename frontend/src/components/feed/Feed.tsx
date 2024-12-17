@@ -20,7 +20,7 @@ const Feed: React.FC = () => {
     const fetchUserProfile = async () => {
       try {
         const userData = await users.getProfile();
-        setUser(userData);
+        setUser(userData as unknown as User);
       } catch (error) {
         console.error("Error fetching user profile:", error);
       }
@@ -33,10 +33,14 @@ const Feed: React.FC = () => {
     try {
       setLoadingMore(true);
       const data = await posts.getAll(pageNum);
-      if (data.length < 20) {
+      if ((data as PostType[]).length < 20) {
         setHasMore(false);
       }
-      setFeedPosts((prev) => (pageNum === 1 ? data : [...prev, ...data]));
+      setFeedPosts((prev) =>
+        pageNum === 1
+          ? (data as PostType[])
+          : [...prev, ...(data as PostType[])]
+      );
     } catch (error) {
       setError("Failed to load posts");
       console.error("Error fetching posts:", error);

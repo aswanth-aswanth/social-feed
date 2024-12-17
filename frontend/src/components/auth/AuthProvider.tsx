@@ -7,16 +7,13 @@ interface AuthProviderProps {
 }
 
 const AuthProvider = ({ children }: AuthProviderProps) => {
-  const { initializeAuth, loading, initialized } = useAuthStore();
+  const { initializeAuth, initialized } = useAuthStore();
 
   useEffect(() => {
     initializeAuth();
   }, [initializeAuth]);
 
-  if (!initialized) {
-    return <Loading />;
-  }
-
+  if (!initialized) return <Loading />;
   return <>{children}</>;
 };
 

@@ -16,7 +16,7 @@ interface ShareButtonProps {
 const ShareButton: React.FC<ShareButtonProps> = ({ url, title }) => {
   return (
     <div className="flex space-x-2">
-      <FacebookShareButton url={url} quote={title}>
+      <FacebookShareButton url={url}>
         <FacebookIcon size={32} round />
       </FacebookShareButton>
 

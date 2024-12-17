@@ -38,15 +38,11 @@ const Post: React.FC<PostProps> = ({ post, index }) => {
     setLikeCount((prev) => prev + 1);
   };
 
-  const handleShare = () => {
-    console.log("Share post:", post._id);
-  };
-
   const bgColor = index % 2 === 0 ? "bg-[#F7EBFF]" : "bg-[#FFFAEE]";
 
   const mediaItems: MediaItem[] = [
-    ...post.images.map((img) => ({ type: "image", url: img })),
-    ...(post.video ? [{ type: "video", url: post.video }] : []),
+    ...post.images.map((img): MediaItem => ({ type: "image" as const, url: img })),
+    ...(post.video ? [{ type: "video" as const, url: post.video }] : []),
   ];
 
   const handleProfileClick = () => {
