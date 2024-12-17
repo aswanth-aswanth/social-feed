@@ -148,7 +148,9 @@ const Post: React.FC<PostProps> = ({ post, index }) => {
         </button>
       </div>
 
-      {showShareModal && <ShareModal url={shareUrl} onClose={() => 5(false)} />}
+      {showShareModal && (
+        <ShareModal url={shareUrl} onClose={() => setShowShareModal(false)} />
+      )}
     </div>
   );
 };

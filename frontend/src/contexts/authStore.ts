@@ -1,6 +1,6 @@
 // src/contexts/authStore.ts
 import { create } from "zustand";
-import { auth } from '../services/api';
+import { auth } from "../services/api";
 
 interface User {
   id: string;
@@ -30,20 +30,20 @@ export const useAuthStore = create<AuthState>((set) => ({
 
   initializeAuth: async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       if (!token) {
         set({ loading: false, initialized: true });
         return;
       }
 
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch("http://localhost:5000/api/users/profile", {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (!response.ok) {
-        localStorage.removeItem('token');
+        localStorage.removeItem("token");
         set({ loading: false, initialized: true });
         return;
       }
@@ -51,7 +51,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       const user = await response.json();
       set({ user, loading: false, initialized: true });
     } catch (error) {
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       set({ loading: false, initialized: true });
     }
   },
@@ -60,7 +60,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       set({ loading: true, error: null });
       const { user, token } = await auth.login(email, password);
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });
@@ -71,7 +71,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     try {
       set({ loading: true, error: null });
       const { user, token } = await auth.register(email, password, name);
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });
@@ -79,21 +79,21 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   loginWithGoogle: () => {
-    window.location.href = 'http://localhost:5000/api/auth/google';
+    window.location.href = "http://localhost:5000/api/auth/google";
   },
 
   handleOAuthSuccess: async (token: string) => {
     try {
       set({ loading: true, error: null });
-      const response = await fetch('http://localhost:5000/api/users/profile', {
+      const response = await fetch("http://localhost:5000/api/users/profile", {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
-      if (!response.ok) throw new Error('Failed to get user info');
-      
+      if (!response.ok) throw new Error("Failed to get user info");
+
       const user = await response.json();
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
       set({ error: error.message, loading: false });
@@ -102,7 +102,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   logout: () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     set({ user: null });
   },
 }));

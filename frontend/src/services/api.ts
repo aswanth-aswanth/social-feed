@@ -1,5 +1,4 @@
 import axios from "axios";
-import type { InternalAxiosRequestConfig } from "axios";
 
 export interface User {
   id: string;
@@ -22,11 +21,13 @@ export interface ProfileUpdateData {
   coverPicture?: File;
 }
 
+// Create the axios instance
 const api = axios.create({
   baseURL: "http://localhost:5000/api",
 });
 
-api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+// Add a request interceptor
+api.interceptors.request.use((config: any) => {
   const token = localStorage.getItem("token");
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
@@ -34,6 +35,7 @@ api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   return config;
 });
 
+// Add a response interceptor
 api.interceptors.response.use(
   (response) => response,
   (error) => {

@@ -1,4 +1,3 @@
-// src/components/profile/UserProfile.tsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { posts, users } from "../../services/api";
