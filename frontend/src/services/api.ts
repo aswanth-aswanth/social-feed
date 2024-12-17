@@ -21,12 +21,13 @@ export interface ProfileUpdateData {
   coverPicture?: File;
 }
 
-// Create the axios instance
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: API_BASE_URL,
 });
 
-// Add a request interceptor
 api.interceptors.request.use((config: any) => {
   const token = localStorage.getItem("token");
   if (token && config.headers) {
@@ -35,7 +36,6 @@ api.interceptors.request.use((config: any) => {
   return config;
 });
 
-// Add a response interceptor
 api.interceptors.response.use(
   (response) => response,
   (error) => {

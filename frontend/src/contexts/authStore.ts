@@ -2,6 +2,8 @@
 import { create } from "zustand";
 import { auth } from "../services/api";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 interface User {
   id: string;
   email: string;
@@ -36,7 +38,7 @@ export const useAuthStore = create<AuthState>((set) => ({
         return;
       }
 
-      const response = await fetch("http://localhost:5000/api/users/profile", {
+      const response = await fetch(`${API_BASE_URL}/users/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -81,13 +83,13 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   loginWithGoogle: () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${API_BASE_URL}/auth/google`;
   },
 
   handleOAuthSuccess: async (token: string) => {
     try {
       set({ loading: true, error: null });
-      const response = await fetch("http://localhost:5000/api/users/profile", {
+      const response = await fetch(`${API_BASE_URL}/users/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
