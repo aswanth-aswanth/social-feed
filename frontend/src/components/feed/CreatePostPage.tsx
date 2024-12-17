@@ -1,16 +1,10 @@
-// src/components/feed/CreatePostPage.tsx
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { posts } from "../../services/api";
-
-interface MediaPreview {
-  type: "image" | "video";
-  url: string;
-  file: File;
-}
+import CreatePostHeader from "./CreatePostHeader";
+import MediaUploadInput from "./MediaUploadInput";
+import MediaSlider from "./MediaSlider";
+import { MediaPreview } from "../../types/CreatePostPage";
 
 const CreatePostPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,15 +12,6 @@ const CreatePostPage: React.FC = () => {
   const [mediaFiles, setMediaFiles] = useState<MediaPreview[]>([]);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
-
-  const sliderSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    afterChange: (index: number) => setCurrentSlide(index),
-  };
 
   const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
@@ -45,9 +30,7 @@ const CreatePostPage: React.FC = () => {
     try {
       const formData = new FormData();
       formData.append("text", caption);
-      mediaFiles.forEach(({ file }) => {
-        formData.append("media", file);
-      });
+      mediaFiles.forEach(({ file }) => formData.append("media", file));
 
       await posts.create(formData);
       navigate(-1);
@@ -60,84 +43,20 @@ const CreatePostPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white max-w-[360px] mx-auto relative">
-      {/* Header */}
-      <div className="flex items-center p-4">
-        <button onClick={() => navigate(-1)} className="flex items-center gap-2">
-          <img src="/HiArrowSmLeftBlack.png" alt="Back" className="w-8 h-6" />
-          <h3 className="font-bold text-xl">New post</h3>
-        </button>
-      </div>
+      <CreatePostHeader />
 
-      {/* Media Preview Section */}
       <div className="relative aspect-square bg-gray-100">
         {mediaFiles.length > 0 ? (
-          <div className="relative w-full h-full">
-            {/* Slider */}
-            <Slider {...sliderSettings} className="w-full h-full">
-              {mediaFiles.map((media, index) => (
-                <div key={index} className="w-full h-full p-10 bg-white">
-                  {media.type === "video" ? (
-                    <video
-                      src={media.url}
-                      className="w-full h-full object-cover rounded-xl"
-                      controls
-                    />
-                  ) : (
-                    <img
-                      src={media.url}
-                      alt={`Preview ${index + 1}`}
-                      className="w-full h-full object-cover rounded-xl"
-                    />
-                  )}
-                </div>
-              ))}
-            </Slider>
-
-            {/* Multiple media indicator */}
-            {mediaFiles.length > 1 && (
-              <div className="absolute top-[50px] right-[50px] z-10">
-                <span className="text-xs bg-white font-bold px-2 py-1 rounded-full">
-                  {currentSlide + 1}/{mediaFiles.length}
-                </span>
-              </div>
-            )}
-          </div>
+          <MediaSlider
+            mediaFiles={mediaFiles}
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
+          />
         ) : (
-          <div className="w-full h-full flex items-center bg-white justify-center">
-            <label htmlFor="post-media" className="cursor-pointer">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                </div>
-                <p className="text-gray-600">Add photos or videos</p>
-              </div>
-            </label>
-          </div>
+          <MediaUploadInput handleChange={handleMediaChange} />
         )}
-        <input
-          type="file"
-          id="post-media"
-          accept="image/*,video/*"
-          multiple
-          onChange={handleMediaChange}
-          className="hidden"
-        />
       </div>
 
-      {/* Caption Section */}
       <div className="p-4">
         <textarea
           value={caption}
@@ -148,7 +67,6 @@ const CreatePostPage: React.FC = () => {
         />
       </div>
 
-      {/* Create Button */}
       <div className="absolute bottom-8 left-4 right-4">
         <button
           onClick={handleCreate}

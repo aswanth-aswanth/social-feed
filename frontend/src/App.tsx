@@ -9,7 +9,7 @@ import EditProfile from "./components/profile/EditProfile";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 import CreatePostPage from "./components/feed/CreatePostPage";
-import OAuthSuccess from './components/auth/OAuthSuccess';
+import OAuthSuccess from "./components/auth/OAuthSuccess";
 import AuthProvider from "./components/auth/AuthProvider";
 
 const App: React.FC = () => {
