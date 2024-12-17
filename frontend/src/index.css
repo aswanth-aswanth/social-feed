@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 2px;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+/* Hide scrollbar for IE and Edge */
+.scrollbar-thin {
+  -ms-overflow-style: none;
+}
+/* Add to your global CSS file */
+/* Add to your global CSS file */
+
+.slick-dots{
+  bottom: 0px !important;
+}
+.slick-slider {
+  height: 100%;
+}
+
+.slick-list,
+.slick-track,
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-slide {
+  pointer-events: none;
+}
+
+.slick-slide.slick-active {
+  pointer-events: auto;
+}
+
+/* Custom dots styling */
+.custom-dots {
+  position: absolute;
+  bottom: 16px;
+  display: flex !important;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 1;
+}
+
+.custom-dots li {
+  margin: 0 2px;
+}
+
+.custom-dots li div {
+  background-color: #D9D9D9;  /* Color for non-active dots */
+}
+
+.custom-dots li.slick-active div {
+  opacity: 1;
+  background-color: black;    /* Color for active dot */
+}
