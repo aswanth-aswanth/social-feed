@@ -39,8 +39,8 @@ const UserProfile: React.FC = () => {
           posts.getMyPosts(),
         ]);
 
-        setUserData(profileData);
-        setUserPosts(postsData);
+        setUserData(profileData as unknown as User);
+        setUserPosts(postsData as UserPost[]);
       } catch (error) {
         setError("Error fetching user data");
         console.error(error);
