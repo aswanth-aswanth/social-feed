@@ -63,7 +63,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      set({ error: error.message, loading: false });
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      set({ error: errorMessage, loading: false });
     }
   },
 
@@ -74,7 +75,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      set({ error: error.message, loading: false });
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      set({ error: errorMessage, loading: false });
     }
   },
 
@@ -96,7 +98,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      set({ error: error.message, loading: false });
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      set({ error: errorMessage, loading: false });
       throw error;
     }
   },
