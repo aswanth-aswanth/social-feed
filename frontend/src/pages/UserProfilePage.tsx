@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { posts, users } from "../services/api";
+import { posts, users } from "../services";
 import { User, UserPost } from "../types";
 import Loading from "../components/common/Loading";
 import { CoverImage, ProfileImage, PostGrid } from "../components/profile";
+import { CreatePostButton } from "../components/feed";
 
 const UserProfile: React.FC = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const UserProfile: React.FC = () => {
           onEditClick={() => navigate("/edit-profile")}
         />
         <PostGrid posts={userPosts} />
+        <CreatePostButton />
       </div>
     </div>
   );

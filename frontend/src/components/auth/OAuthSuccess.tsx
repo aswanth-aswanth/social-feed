@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useAuthStore } from '../../contexts/authStore';
+import { useAuthStore } from '../../store/authStore';
 import Loading from '../common/Loading';
 
 const OAuthSuccess = () => {

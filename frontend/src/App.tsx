@@ -1,13 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  FeedPage,
-  LoginPage,
-  RegisterPage,
-  UserProfilePage,
-  EditProfilePage,
-  CreatePostPage,
-} from "./pages";
+import { FeedPage, LoginPage, RegisterPage, UserProfilePage, EditProfilePage, CreatePostPage } from "./pages";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 import { OAuthSuccess, AuthProvider } from "./components/auth";
@@ -19,33 +12,12 @@ const App: React.FC = () => {
         <AuthProvider>
           <div className="h-screen bg-gray-100">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <ProtectedRoute>
-                    <FeedPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <UserProfilePage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/create-post" element={<CreatePostPage />} />
+              <Route path="/" element={<ProtectedRoute><FeedPage /></ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute><UserProfilePage /></ProtectedRoute>} />
+              <Route path="/create-post" element={<ProtectedRoute><CreatePostPage /></ProtectedRoute>} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route
-                path="/edit-profile"
-                element={
-                  <ProtectedRoute>
-                    <EditProfilePage />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/edit-profile" element={<ProtectedRoute><EditProfilePage /></ProtectedRoute>} />
               <Route path="/oauth-success" element={<OAuthSuccess />} />
             </Routes>
           </div>

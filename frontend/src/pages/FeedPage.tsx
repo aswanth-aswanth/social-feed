@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { User, Post as PostType } from "../types";
-import { posts, users } from "../services/api";
+import { posts, users } from "../services";
 import Loading from "../components/common/Loading";
 import { FeedHeader, PostList, CreatePostButton } from "../components/feed";
 

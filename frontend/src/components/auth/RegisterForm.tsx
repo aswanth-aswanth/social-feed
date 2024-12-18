@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useAuthStore } from "../../contexts/authStore";
+import { useAuthStore } from "../../store/authStore";
 import ErrorMessage from "../common/ErrorMessage";
 
 interface RegisterFormProps {

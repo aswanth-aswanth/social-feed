@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthStore } from "../../contexts/authStore";
+import { useAuthStore } from "../../store/authStore";
 
 interface LoginFormProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;

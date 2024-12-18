@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { posts } from "../services/api";
+import { posts } from "../services";
 import CreatePostHeader from "../components/feed/CreatePostHeader";
 import MediaUploadInput from "../components/feed/MediaUploadInput";
 import MediaSlider from "../components/feed/MediaSlider";

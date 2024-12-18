@@ -6,11 +6,11 @@ const AuthorInfo: React.FC<AuthorInfoProps> = ({ author, timestamp }) => (
     <img
       src={author.profilePicture || "/defaultProfile.png"}
       alt={author.name}
-      className="w-10 h-10 rounded-full object-cover"
+      className="w-11 h-11 rounded-full object-cover"
     />
     <div>
       <div className="font-bold text-gray-800">{author.name}</div>
-      <div className="text-gray-500 text-sm">{timestamp}</div>
+      <div className="text-gray-500 text-xs">{timestamp}</div>
     </div>
   </div>
 );

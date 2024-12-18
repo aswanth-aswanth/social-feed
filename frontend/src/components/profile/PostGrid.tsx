@@ -11,11 +11,11 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => (
     {posts.length > 0 ? (
       <div className="grid grid-cols-2 gap-2">
         {posts.map((post) => (
-          <div key={post._id} className="aspect-square relative group">
+          <div key={post._id} className="max-h-[240px] relative group">
             <img
               src={post.images[0]}
               alt={post.text}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-xl"
             />
             {post.images.length > 1 && (
               <div className="absolute top-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full">

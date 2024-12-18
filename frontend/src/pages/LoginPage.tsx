@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuthStore } from "../contexts/authStore";
+import { useAuthStore } from "../store/authStore";
 import Loading from "../components/common/Loading";
 import ErrorMessage from "../components/common/ErrorMessage";
 import { MasonryImageGrid, LoginModal, LogoSection } from "../components/auth";

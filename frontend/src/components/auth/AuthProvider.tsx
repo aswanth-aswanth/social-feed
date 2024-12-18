@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAuthStore } from "../../contexts/authStore";
+import { useAuthStore } from "../../store/authStore";
 import Loading from "../common/Loading";
 
 interface AuthProviderProps {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { users } from "../services/api";
+import { users } from "../services";
 import {
   CoverImageEditor,
   ProfilePictureEditor,

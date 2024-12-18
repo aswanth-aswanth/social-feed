@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthStore } from "../contexts/authStore";
+import { useAuthStore } from "../store/authStore";
 import Loading from "../components/common/Loading";
 import { RegisterHeader, RegisterLogo, RegisterForm } from "../components/auth";
 

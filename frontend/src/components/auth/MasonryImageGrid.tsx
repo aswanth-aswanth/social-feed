@@ -12,7 +12,7 @@ const MasonryImageGrid: React.FC = () => {
         ))}
       </div>
       {/* Second Column */}
-      <div className="space-y-2 -mt-[6.4rem]">
+      <div className="space-y-2 -mt-[7.4rem]">
         {["/image2.png", "/image5.png", "/image8.png"].map((src, index) => (
           <div className="aspect-[7/12]" key={index}>
             <img src={src} className="w-full h-full object-cover" alt="" />

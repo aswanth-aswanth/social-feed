@@ -11,16 +11,16 @@ const FeedHeader = ({ user }: FeedHeaderProps) => {
   return (
     <div
       onClick={handleProfileClick}
-      className="flex bg-white py-3 z-10 items-center justify-start gap-4"
+      className="flex bg-white py-3 z-10 items-center justify-start gap-2"
     >
       <img
         src={user?.profilePicture || "/defaultProfile.png"}
         alt="Profile"
-        className="w-10 h-10 rounded-full object-cover"
+        className="w-14 h-14 rounded-full object-cover"
       />
       <div>
-        <h1 className="text-xl font-semibold">Welcome Back</h1>
-        <p className="text-sm text-gray-600">{user?.name || "Loading..."}</p>
+        <p className="text-xs text-gray-600">Welcome Back</p>
+        <h1 className="text-xl font-semibold">{user?.name || "Loading..."}</h1>
       </div>
     </div>
   );
