@@ -36,7 +36,6 @@ const Post: React.FC<PostProps> = ({ post, index }) => {
     <div className={`${bgColor} p-4 mb-4 rounded-3xl`}>
       <AuthorInfo author={post.author} timestamp={formattedTimestamp} />
       <div className="mb-4">
-        <p className="text-gray-800 mb-2">{post.text}</p>
         <Hashtags text={post.text} />
       </div>
       {mediaItems.length > 0 && <MediaGallery mediaItems={mediaItems} />}
