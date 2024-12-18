@@ -1,9 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { User } from "../../types";
-
-interface FeedHeaderProps {
-  user: User | null;
-}
+import { FeedHeaderProps } from "../../types";
 
 const FeedHeader = ({ user }: FeedHeaderProps) => {
   const navigate = useNavigate();

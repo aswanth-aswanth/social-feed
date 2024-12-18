@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { posts } from "../../services/api";
-import CreatePostHeader from "./CreatePostHeader";
-import MediaUploadInput from "./MediaUploadInput";
-import MediaSlider from "./MediaSlider";
-import { MediaPreview } from "../../types/CreatePostPage";
+import { posts } from "../services/api";
+import CreatePostHeader from "../components/feed/CreatePostHeader";
+import MediaUploadInput from "../components/feed/MediaUploadInput";
+import MediaSlider from "../components/feed/MediaSlider";
+import { MediaPreview } from "../types/CreatePostPage";
 
 const CreatePostPage: React.FC = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const CreatePostPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white max-w-[360px] mx-auto relative">
+    <div className="h-screen bg-white max-w-[360px] mx-auto relative">
       <CreatePostHeader />
 
       <div className="relative aspect-square bg-gray-100">

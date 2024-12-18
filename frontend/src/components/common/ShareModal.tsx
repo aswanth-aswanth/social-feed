@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -6,15 +6,19 @@ import {
   WhatsappShareButton,
   TelegramShareButton,
   FacebookMessengerShareButton,
-} from 'react-share';
+} from "react-share";
 import {
   FacebookIcon,
   TwitterIcon,
   RedditIcon,
   WhatsappIcon,
   TelegramIcon,
-} from 'react-share';
-import { MessageCircle as Discord, Instagram, MessagesSquare as Messenger  } from 'lucide-react';
+} from "react-share";
+import {
+  MessageCircle as Discord,
+  Instagram,
+  MessagesSquare as Messenger,
+} from "lucide-react";
 
 interface ShareModalProps {
   url: string;
@@ -27,11 +31,14 @@ const ShareModal: React.FC<ShareModalProps> = ({ url, onClose }) => {
       <div className="bg-white rounded-lg p-6 w-[340px]">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold">Share post</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
             ✕
           </button>
         </div>
-        
+
         <div className="grid grid-cols-4 gap-6">
           <div className="flex flex-col items-center">
             <TwitterShareButton url={url}>
@@ -109,13 +116,13 @@ const ShareModal: React.FC<ShareModalProps> = ({ url, onClose }) => {
         <div className="mt-6">
           <p className="text-sm font-medium mb-2">Page Link</p>
           <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-lg">
-            <input 
-              type="text" 
-              value={url} 
-              readOnly 
+            <input
+              type="text"
+              value={url}
+              readOnly
               className="bg-transparent flex-1 outline-none"
             />
-            <button 
+            <button
               onClick={() => navigator.clipboard.writeText(url)}
               className="p-2 hover:bg-gray-200 rounded"
             >
@@ -128,4 +135,4 @@ const ShareModal: React.FC<ShareModalProps> = ({ url, onClose }) => {
   );
 };
 
-export default ShareModal; 
+export default ShareModal;

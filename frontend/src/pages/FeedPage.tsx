@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { posts } from "../../services/api";
-import CreatePostButton from "./CreatePostButton";
-import Loading from "../common/Loading";
-import { users } from "../../services/api";
-import { User, Post as PostType } from "../../types";
-import FeedHeader from "./FeedHeader";
-import PostList from "./PostList";
+import { User, Post as PostType } from "../types";
+import { posts, users } from "../services/api";
+import Loading from "../components/common/Loading";
+import { FeedHeader, PostList, CreatePostButton } from "../components/feed";
 
 const Feed: React.FC = () => {
   const [feedPosts, setFeedPosts] = useState<PostType[]>([]);

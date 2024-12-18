@@ -1,14 +1,14 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Feed from "./components/feed/Feed";
+import Feed from "./pages/FeedPage";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import UserProfile from "./components/profile/UserProfile";
-import EditProfile from "./components/profile/EditProfile";
+import UserProfile from "./pages/UserProfilePage";
+import EditProfile from "./pages/EditProfilePage";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
-import CreatePostPage from "./components/feed/CreatePostPage";
+import CreatePostPage from "./pages/CreatePostPage";
 import OAuthSuccess from "./components/auth/OAuthSuccess";
 import AuthProvider from "./components/auth/AuthProvider";
 

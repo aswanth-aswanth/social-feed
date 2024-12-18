@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -6,7 +6,7 @@ import {
   FacebookIcon,
   TwitterIcon,
   WhatsappIcon,
-} from 'react-share';
+} from "react-share";
 
 interface ShareButtonProps {
   url: string;
@@ -31,4 +31,4 @@ const ShareButton: React.FC<ShareButtonProps> = ({ url, title }) => {
   );
 };
 
-export default ShareButton; 
+export default ShareButton;

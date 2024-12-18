@@ -1,4 +1,3 @@
-// src/components/auth/Login.tsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "../../contexts/authStore";
@@ -32,7 +31,6 @@ const Login: React.FC = () => {
   return (
     <div className="h-screen relative overflow-y-hidden max-w-[360px] mx-auto bg-white flex flex-col items-center">
       <div className="w-full space-y-8">
-        {/* Masonry Image Grid */}
         {/* Masonry Image Grid */}
         <div className="grid grid-cols-3 gap-2">
           {/* First Column - Starts lower */}

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useAuthStore } from '../../contexts/authStore';
-import Loading from '../common/Loading';
+import { useEffect } from "react";
+import { useAuthStore } from "../../contexts/authStore";
+import Loading from "../common/Loading";
 
 interface AuthProviderProps {
   children: React.ReactNode;
@@ -17,4 +17,4 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   return <>{children}</>;
 };
 
-export default AuthProvider; 
+export default AuthProvider;
