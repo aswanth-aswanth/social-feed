@@ -1,8 +1,7 @@
-// src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Feed from "./pages/FeedPage";
-import Login from "./components/auth/Login";
+import LoginPage from "./pages/LoginPage";
 import Register from "./components/auth/Register";
 import UserProfile from "./pages/UserProfilePage";
 import EditProfile from "./pages/EditProfilePage";
@@ -36,7 +35,7 @@ const App: React.FC = () => {
                 }
               />
               <Route path="/create-post" element={<CreatePostPage />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<Register />} />
               <Route
                 path="/edit-profile"
