@@ -1,28 +1,29 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Feed from "./pages/FeedPage";
-import LoginPage from "./pages/LoginPage";
-import Register from "./components/auth/Register";
-import UserProfile from "./pages/UserProfilePage";
-import EditProfile from "./pages/EditProfilePage";
+import {
+  FeedPage,
+  LoginPage,
+  RegisterPage,
+  UserProfilePage,
+  EditProfilePage,
+  CreatePostPage,
+} from "./pages";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
-import CreatePostPage from "./pages/CreatePostPage";
-import OAuthSuccess from "./components/auth/OAuthSuccess";
-import AuthProvider from "./components/auth/AuthProvider";
+import { OAuthSuccess, AuthProvider } from "./components/auth";
 
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Router>
         <AuthProvider>
-          <div className="min-h-screen bg-gray-100">
+          <div className="h-screen bg-gray-100">
             <Routes>
               <Route
                 path="/"
                 element={
                   <ProtectedRoute>
-                    <Feed />
+                    <FeedPage />
                   </ProtectedRoute>
                 }
               />
@@ -30,18 +31,18 @@ const App: React.FC = () => {
                 path="/profile"
                 element={
                   <ProtectedRoute>
-                    <UserProfile />
+                    <UserProfilePage />
                   </ProtectedRoute>
                 }
               />
               <Route path="/create-post" element={<CreatePostPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/register" element={<RegisterPage />} />
               <Route
                 path="/edit-profile"
                 element={
                   <ProtectedRoute>
-                    <EditProfile />
+                    <EditProfilePage />
                   </ProtectedRoute>
                 }
               />

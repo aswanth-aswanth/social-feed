@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { MediaItem, PostProps } from "../../types";
 import ShareModal from "../common/ShareModal";
-import { AuthorInfo, MediaGallery, Hashtags, PostActions } from "./";
+import { AuthorInfo, MediaGallery, Hashtags, PostActions } from ".";
 
 const Post: React.FC<PostProps> = ({ post, index }) => {
   const [likeCount, setLikeCount] = useState(67);

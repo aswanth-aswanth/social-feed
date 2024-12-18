@@ -1,8 +1,8 @@
-// src/contexts/authStore.ts
 import { create } from "zustand";
 import { auth } from "../services/api";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 interface User {
   id: string;
@@ -65,7 +65,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      const errorMessage =
+        error instanceof Error ? error.message : "An error occurred";
       set({ error: errorMessage, loading: false });
     }
   },
@@ -77,7 +78,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      const errorMessage =
+        error instanceof Error ? error.message : "An error occurred";
       set({ error: errorMessage, loading: false });
     }
   },
@@ -100,7 +102,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       localStorage.setItem("token", token);
       set({ user, loading: false });
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      const errorMessage =
+        error instanceof Error ? error.message : "An error occurred";
       set({ error: errorMessage, loading: false });
       throw error;
     }

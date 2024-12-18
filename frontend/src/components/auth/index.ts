@@ -5,4 +5,6 @@ export { default as LoginModal } from "./LoginModal";
 export { default as LogoSection } from "./LogoSection";
 export { default as MasonryImageGrid } from "./MasonryImageGrid";
 export { default as OAuthSuccess } from "./OAuthSuccess";
-export { default as Register } from "./Register";
+export { default as RegisterHeader } from "./RegisterHeader";
+export { default as RegisterLogo } from "./RegisterLogo";
+export { default as RegisterForm } from "./RegisterForm";
