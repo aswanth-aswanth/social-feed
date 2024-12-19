@@ -9,7 +9,7 @@ const Hashtags: React.FC<HashtagsProps> = ({ text }) => (
           {word}
         </span>
       ) : (
-        <>{word}</>
+        <span key={i}>{word}</span>
       )
     )}
   </div>

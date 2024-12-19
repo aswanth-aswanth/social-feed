@@ -58,23 +58,12 @@ const login = async (req, res) => {
 const googleCallback = async (req, res) => {
   try {
     const { user } = req.user;
-    let currentUser = await User.findOne({ email: profile.emails[0].value });
-
-    if (!user) {
-      const randomPassword = Math.random().toString(36).slice(-8);
-      user = new User({
-        email: profile.emails[0].value,
-        name: profile.displayName,
-        profilePicture: profile.photos[0].value,
-        password: randomPassword,
-      });
-      await user.save();
-    }
-    const token = generateToken(currentUser._id);
+    const token = generateToken(user._id);
 
     // Redirect to frontend with token
     res.redirect(`${process.env.FRONTEND_URL}/oauth-success?token=${token}`);
   } catch (error) {
+    console.log("Error in googleCallback : ", error);
     res.redirect(`${process.env.FRONTEND_URL}/login?error=true`);
   }
 };

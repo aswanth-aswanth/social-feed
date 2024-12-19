@@ -33,6 +33,11 @@ const UserProfile: React.FC = () => {
     fetchUserData();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   if (loading) return <Loading />;
   if (error) return <div className="text-red-500">{error}</div>;
 
@@ -51,6 +56,7 @@ const UserProfile: React.FC = () => {
         />
         <PostGrid posts={userPosts} />
         <CreatePostButton />
+        <button className="bg-black my-4 text-white p-2 rounded-md" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
