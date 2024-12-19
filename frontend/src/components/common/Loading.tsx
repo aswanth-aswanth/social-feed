@@ -22,7 +22,7 @@ const Loading: React.FC = () => {
           ))}
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes loadingRotate {
           0% {
             transform: rotate(0deg) translate(0, -150%);
