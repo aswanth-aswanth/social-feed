@@ -7,6 +7,7 @@ import {
   ProfileForm,
   SaveButton,
 } from "../components/profile";
+import Loading from "../components/common/Loading";
 
 const EditProfile: React.FC = () => {
   const navigate = useNavigate();
@@ -61,11 +62,11 @@ const EditProfile: React.FC = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loading />;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="h-screen bg-white max-w-[360px] mx-auto relative">
+    <div className="h-dvh bg-white max-w-[360px] mx-auto relative">
       <CoverImageEditor
         coverPreviewUrl={coverPreviewUrl}
         onBack={() => navigate(-1)}

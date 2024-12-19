@@ -9,7 +9,7 @@ const RegisterPage: React.FC = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="min-h-screen max-w-[360px] mx-auto bg-white flex flex-col">
+    <div className="h-dvh max-w-[360px] mx-auto bg-white flex flex-col">
       <RegisterHeader />
       <main className="flex-1 flex flex-col justify-center px-6">
         <RegisterLogo />

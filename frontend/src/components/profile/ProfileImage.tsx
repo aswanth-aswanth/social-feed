@@ -21,7 +21,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
     />
     <button
       onClick={onEditClick}
-      className="px-4 py-2 absolute bottom-4 right-0 border w-[200px] border-gray-700 rounded-full font-medium text-xs"
+      className="px-4 py-2 absolute bottom-4 right-0 border w-[160px] border-gray-700 rounded-full font-medium text-xs"
     >
       Edit Profile
     </button>

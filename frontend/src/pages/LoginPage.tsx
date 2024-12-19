@@ -18,7 +18,7 @@ const Login: React.FC = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="h-screen relative overflow-y-hidden max-w-[360px] mx-auto bg-white flex flex-col items-center">
+    <div className="h-dvh relative overflow-y-hidden max-w-[360px] mx-auto bg-white flex flex-col items-center">
       <div className="w-full space-y-8">
         <MasonryImageGrid />
         {error && <ErrorMessage error={error} />}

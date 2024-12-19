@@ -42,7 +42,7 @@ const UserProfile: React.FC = () => {
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="h-screen bg-white max-w-[360px] mx-auto">
+    <div className="h-dvh bg-white max-w-[360px] mx-auto">
       <CoverImage
         src={userData?.coverPicture || "/defaultCover.png"}
         onBackClick={() => navigate(-1)}
@@ -56,7 +56,7 @@ const UserProfile: React.FC = () => {
         />
         <PostGrid posts={userPosts} />
         <CreatePostButton />
-        <button className="bg-black my-4 text-white p-2 rounded-md" onClick={handleLogout}>Logout</button>
+        <button className="bg-black my-4 flex text-white p-2 rounded-md" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

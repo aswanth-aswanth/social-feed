@@ -42,7 +42,7 @@ const CreatePostPage: React.FC = () => {
   };
 
   return (
-    <div className="h-screen bg-white max-w-[360px] mx-auto relative">
+    <div className="h-dvh bg-white max-w-[360px] mx-auto relative">
       <CreatePostHeader />
 
       <div className="relative aspect-square bg-gray-100">
