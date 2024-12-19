@@ -3,6 +3,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import ErrorMessage from "../components/common/ErrorMessage";
 import { auth } from "../services";
 
+interface ApiError {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
 const ResetPasswordPage: React.FC = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,7 +34,7 @@ const ResetPasswordPage: React.FC = () => {
       alert(response.message);
       navigate("/login");
     } catch (err) {
-      const error = err;
+      const error = err as ApiError;
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);

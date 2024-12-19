@@ -6,6 +6,14 @@ interface ForgotPasswordProps {
   onClose: () => void;
 }
 
+interface ApiError {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
 const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -22,7 +30,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({ onClose }) => {
       const response = await auth.forgotPassword(email);
       setMessage(response.message);
     } catch (err) {
-      const error = err;
+      const error = err as ApiError;
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
