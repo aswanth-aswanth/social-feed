@@ -3,9 +3,11 @@ import { useAuthStore } from "../store/authStore";
 import Loading from "../components/common/Loading";
 import ErrorMessage from "../components/common/ErrorMessage";
 import { MasonryImageGrid, LoginModal, LogoSection } from "../components/auth";
+import ForgotPassword from "../components/auth/ForgotPassword";
 
 const Login: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const { loginWithGoogle, loading, error } = useAuthStore();
 
   const handleGoogleLogin = (e: React.MouseEvent) => {
@@ -25,7 +27,18 @@ const Login: React.FC = () => {
           onOpenModal={() => setIsModalOpen(true)}
         />
       </div>
-      {isModalOpen && <LoginModal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && (
+        <LoginModal
+          setIsModalOpen={setIsModalOpen}
+          onForgotPassword={() => {
+            setIsModalOpen(false);
+            setIsForgotPasswordOpen(true);
+          }}
+        />
+      )}
+      {isForgotPasswordOpen && (
+        <ForgotPassword onClose={() => setIsForgotPasswordOpen(false)} />
+      )}
     </div>
   );
 };

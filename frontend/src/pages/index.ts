@@ -4,3 +4,4 @@ export { default as UserProfilePage } from "./UserProfilePage";
 export { default as EditProfilePage } from "./EditProfilePage";
 export { default as CreatePostPage } from "./CreatePostPage";
 export { default as FeedPage } from "./FeedPage";
+export { default as ResetPasswordPage } from "./ResetPasswordPage";

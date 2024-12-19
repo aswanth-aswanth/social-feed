@@ -3,9 +3,13 @@ import LoginForm from "./LoginForm";
 
 interface LoginModalProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onForgotPassword: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ setIsModalOpen }) => {
+const LoginModal: React.FC<LoginModalProps> = ({
+  setIsModalOpen,
+  onForgotPassword,
+}) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-2xl p-6 w-[320px] relative">
@@ -30,6 +34,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ setIsModalOpen }) => {
         </button>
         <h2 className="text-xl font-semibold mb-6 text-center">Sign in</h2>
         <LoginForm setIsModalOpen={setIsModalOpen} />
+        <div className="flex items-center justify-center space-x-2 text-sm cursor-pointer">
+          <span onClick={() => onForgotPassword()} className="text-gray-500 hover:text-blue-800">Forgot your password?</span>
+        </div>
       </div>
     </div>
   );

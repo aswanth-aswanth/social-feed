@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
-import Loading from '../common/Loading';
+import { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useAuthStore } from "../../store/authStore";
+import Loading from "../common/Loading";
 
 const OAuthSuccess = () => {
   const navigate = useNavigate();
@@ -9,22 +9,22 @@ const OAuthSuccess = () => {
   const { handleOAuthSuccess } = useAuthStore();
 
   useEffect(() => {
-    const token = searchParams.get('token');
-    
+    const token = searchParams.get("token");
+
     if (token) {
       handleOAuthSuccess(token)
         .then(() => {
-          navigate('/');
+          navigate("/");
         })
         .catch(() => {
-          navigate('/login');
+          navigate("/login");
         });
     } else {
-      navigate('/login');
+      navigate("/login");
     }
   }, [searchParams, navigate, handleOAuthSuccess]);
 
   return <Loading />;
 };
 
-export default OAuthSuccess; 
+export default OAuthSuccess;

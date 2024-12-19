@@ -3,13 +3,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-// Helper function to generate token (same as in auth.js)
 const generateToken = (userId) => {
-  return jwt.sign(
-    { userId },
-    process.env.JWT_SECRET,
-    { expiresIn: "7d" } // Token expires in 7 days
-  );
+  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
 passport.use(
@@ -19,7 +14,7 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "/api/auth/google/callback",
     },
-    async function (accessToken, refreshToken, profile, done) {
+    async function (accessToken, profile, done) {
       try {
         let user = await User.findOne({ email: profile.emails[0].value });
 

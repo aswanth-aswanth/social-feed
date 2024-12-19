@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { FeedPage, LoginPage, RegisterPage, UserProfilePage, EditProfilePage, CreatePostPage } from "./pages";
+import { FeedPage, LoginPage, RegisterPage, UserProfilePage, EditProfilePage, CreatePostPage, ResetPasswordPage } from "./pages";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 import { OAuthSuccess, AuthProvider } from "./components/auth";
@@ -19,6 +19,7 @@ const App: React.FC = () => {
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/edit-profile" element={<ProtectedRoute><EditProfilePage /></ProtectedRoute>} />
               <Route path="/oauth-success" element={<OAuthSuccess />} />
+              <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
             </Routes>
           </div>
         </AuthProvider>

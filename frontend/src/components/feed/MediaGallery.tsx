@@ -23,6 +23,7 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ mediaItems }) => (
               src={media.url}
               className="rounded-lg object-cover w-full h-full"
               controls
+              autoPlay
               preload="metadata"
             />
           )}
