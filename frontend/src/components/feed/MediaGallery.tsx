@@ -50,8 +50,8 @@ const VideoComponent: React.FC<{ src: string }> = ({ src }) => {
         ref={videoRef}
         src={src}
         className="rounded-lg object-cover w-full h-full"
-        muted
         preload="metadata"
+        controls
       />
     </div>
   );
