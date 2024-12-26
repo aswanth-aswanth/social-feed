@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { MediaGalleryProps } from "../../types";
 
 const MediaGallery: React.FC<MediaGalleryProps> = ({ mediaItems }) => (
@@ -19,18 +20,41 @@ const MediaGallery: React.FC<MediaGalleryProps> = ({ mediaItems }) => (
               loading="lazy"
             />
           ) : (
-            <video
-              src={media.url}
-              className="rounded-lg object-cover w-full h-full"
-              controls
-              autoPlay
-              preload="metadata"
-            />
+            <VideoComponent src={media.url} />
           )}
         </div>
       ))}
     </div>
   </div>
 );
+
+const VideoComponent: React.FC<{ src: string }> = ({ src }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref, inView } = useInView({
+    threshold: 0.5, // Trigger when 50% of the video is visible
+  });
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (inView) {
+        videoRef.current.play().catch(() => {});
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [inView]);
+
+  return (
+    <div ref={ref} className="w-full h-full">
+      <video
+        ref={videoRef}
+        src={src}
+        className="rounded-lg object-cover w-full h-full"
+        muted
+        preload="metadata"
+      />
+    </div>
+  );
+};
 
 export default MediaGallery;
