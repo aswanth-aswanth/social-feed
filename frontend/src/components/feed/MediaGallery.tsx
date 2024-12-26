@@ -51,6 +51,7 @@ const VideoComponent: React.FC<{ src: string }> = ({ src }) => {
         src={src}
         className="rounded-lg object-cover w-full h-full"
         preload="metadata"
+        muted
         controls
       />
     </div>
