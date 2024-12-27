@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { posts, users } from "../services";
 import { User, UserPost } from "../types";
-import Loading from "../components/common/Loading";
 import { CoverImage, ProfileImage, PostGrid } from "../components/profile";
 import { CreatePostButton } from "../components/feed";
 
 const UserProfile: React.FC = () => {
   const navigate = useNavigate();
   const [userPosts, setUserPosts] = useState<UserPost[]>([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [userData, setUserData] = useState<User | null>(null);
 
@@ -25,8 +23,6 @@ const UserProfile: React.FC = () => {
       } catch (error) {
         setError("Error fetching user data");
         console.error(error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -38,7 +34,6 @@ const UserProfile: React.FC = () => {
     navigate("/login");
   };
 
-  if (loading) return <Loading />;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
@@ -56,7 +51,12 @@ const UserProfile: React.FC = () => {
         />
         <PostGrid posts={userPosts} />
         <CreatePostButton />
-        <button className="bg-black my-4 flex text-white p-2 rounded-md" onClick={handleLogout}>Logout</button>
+        <button
+          className="bg-black my-4 flex text-white p-2 rounded-md"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
       </div>
     </div>
   );

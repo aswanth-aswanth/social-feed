@@ -7,11 +7,9 @@ import {
   ProfileForm,
   SaveButton,
 } from "../components/profile";
-import Loading from "../components/common/Loading";
 
 const EditProfile: React.FC = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
@@ -28,10 +26,8 @@ const EditProfile: React.FC = () => {
         setBio(userData.bio || "");
         setPreviewUrl(userData.profilePicture || "/defaultProfile.png");
         setCoverPreviewUrl(userData.coverPicture || "/defaultCover.jpeg");
-        setLoading(false);
       } catch (err) {
         setError("Failed to load profile");
-        setLoading(false);
       }
     };
 
@@ -62,7 +58,6 @@ const EditProfile: React.FC = () => {
     }
   };
 
-  if (loading) return <Loading />;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (

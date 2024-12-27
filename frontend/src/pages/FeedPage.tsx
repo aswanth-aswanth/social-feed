@@ -51,7 +51,7 @@ const Feed: React.FC = () => {
     fetchPosts(page);
   }, [page]);
 
-  if (loading && page === 1) return <Loading />;
+  
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
@@ -70,11 +70,11 @@ const Feed: React.FC = () => {
           <CreatePostButton />
         </div>
 
-        {loadingMore && (
+        {/* {loadingMore && (
           <div className="text-center py-4">
             <Loading />
           </div>
-        )}
+        )} */}
 
         {!hasMore && (
           <div className="text-center text-gray-500 py-4">
